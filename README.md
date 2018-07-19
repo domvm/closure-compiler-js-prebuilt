@@ -1,0 +1,5 @@
+It appears that [closure-compiler-js](https://github.com/google/closure-compiler-js) has been [discontinued](https://github.com/google/closure-compiler-js/issues/79#issuecomment-406062433) in favor of the heavier [closure-compiler-npm](https://github.com/google/closure-compiler-npm) package.
+
+`closure-compiler-npm` provides facilities that - based on OS and environment - may run either a Java, native or JS port of Google Closure Compiler. Whatever version is deemed best at the time of installation is downloaded and/or built. To keep domvm's dependency size minimal, this repo extracts the two core files needed to run the JS version: The `jscomp.js` compiler itself (3.2MB) and a lightly modified API shim found at [closure-compiler-js.js](https://github.com/google/closure-compiler-npm/blob/master/lib/node/closure-compiler-js.js) (3kb).
+
+This shaves 22MB and 1,800 files off domvm's `node_modules` in `devDependencies` bloat, see [issue #95](https://github.com/google/closure-compiler-npm/issues/95) :D

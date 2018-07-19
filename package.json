@@ -1,0 +1,19 @@
+{
+  "name": "closure-compiler-js-prebuilt",
+  "version": "20180716.0.0",
+  "description": "a pre-built, bare-bones package of google-closure-compiler-js",
+  "main": "closure-compiler-js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domvm/closure-compiler-js-prebuilt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domvm/closure-compiler-js-prebuilt/issues"
+  },
+  "homepage": "https://github.com/domvm/closure-compiler-js-prebuilt#readme"
+}
