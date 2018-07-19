@@ -23,8 +23,7 @@
 'use strict';
 
 const path = require('path');
-const contribPath = path.dirname(path.resolve(__dirname, '../../')) + '/contrib';
-const jscomp = require('../../jscomp.js');
+const jscomp = require('./jscomp.js');
 
 class CompilerJS {
   /** @param {Object<string,string>|Array<string>} flags */
@@ -74,8 +73,5 @@ class CompilerJS {
     };
   }
 }
-
-/** @type {string} */
-CompilerJS.CONTRIB_PATH = contribPath;
 
 module.exports = CompilerJS;
