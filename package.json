@@ -1,6 +1,6 @@
 {
   "name": "closure-compiler-js-prebuilt",
-  "version": "20180716.0.0",
+  "version": "20180805.0.0",
   "description": "a pre-built, bare-bones package of google-closure-compiler-js",
   "main": "closure-compiler-js.js",
   "scripts": {
