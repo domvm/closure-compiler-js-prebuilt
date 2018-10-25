@@ -45,15 +45,17 @@ class CompilerJS {
 
   /**
    * @param {!Array<!{src: string, path: string, sourceMap: string}>} fileList
-   * @param {function(number, string, string)=} callback
+   * @param {function(number, Array<{src: string, path: string, sourceMap: (string|undefined)}>, string)=} callback
    * @return {child_process.ChildProcess}
    */
   run(fileList, callback) {
     const out = jscomp(this.flags, fileList);
+    // GWT error and warnings are not true JS arrays, but are array-like.
+    // Convert them to standard JS arrays.
+    out.warnings = [].slice.call(out.warnings);
+    out.errors = [].slice.call(out.errors);
     if (callback) {
-      const warnings = Array.prototype.slice.call(out.warnings);
-      const errors = Array.prototype.slice.call(out.errors);
-      callback(errors.length === 0 ? 0 : 1, out.compiledFiles, out.warnings.concat(out.errors).join('\n\n'));
+      callback(errors.length === 0 ? 0 : 1, out.compiledFiles, errors.join('\n\n'));
     }
     return out;
   }
