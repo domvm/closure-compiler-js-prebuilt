@@ -24,6 +24,7 @@
 
 const path = require('path');
 const jscomp = require('./jscomp.js');
+const CONSOLE_COLOR_CHARS = /\u001B\[\d+m/ug;
 
 class CompilerJS {
   /** @param {Object<string,string>|Array<string>} flags */
@@ -55,6 +56,12 @@ class CompilerJS {
     out.warnings = [].slice.call(out.warnings);
     out.errors = [].slice.call(out.errors);
     if (callback) {
+      const errors = [];
+      const logErrors = require('./logger');
+      logErrors(out, fileList, logOutput => {
+        // The logger uses terminal color markers which we don't want by default.
+        errors.push(logOutput.replace(CONSOLE_COLOR_CHARS, ''));
+      });
       callback(errors.length === 0 ? 0 : 1, out.compiledFiles, errors.join('\n\n'));
     }
     return out;
