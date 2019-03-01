@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/domvm/closure-compiler-js-prebuilt/issues"
   },
-  "homepage": "https://github.com/domvm/closure-compiler-js-prebuilt#readme"
+  "homepage": "https://github.com/domvm/closure-compiler-js-prebuilt#readme",
+  "devDependencies": {
+    "google-closure-compiler-js": "^20190215.0.2"
+  }
 }
